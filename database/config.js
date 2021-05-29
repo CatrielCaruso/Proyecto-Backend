@@ -8,14 +8,15 @@ const dbConnection = async () => {
 
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useFindAndModify: false
 
         });
 
         console.log('Db online');
     } catch (error) {
 
-        console.log(error);
+        console.log(process.env.DB_CNN);
         throw new Error('Error al iniciar la base de datos')
 
     }
