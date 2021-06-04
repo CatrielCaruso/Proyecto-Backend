@@ -4,15 +4,27 @@ const bcrypt = require("bcryptjs");
 
 const Usuario = require("../models/usuarios");
 
-const {generarToken}=require('../helpers/jwt');
+const { generarToken } = require("../helpers/jwt");
 
 const getUsuarios = async (req, res) => {
-  const usuarios = await Usuario.find({}, "nombre email role google");
+  const desde = Number(req.query.desde) || 0;
+  // console.log(desde);
+
+  // const usuarios = await Usuario.find({}, "nombre email role google")
+  //                                .skip(desde)
+  //                                .limit(5);
+
+  // const total = await Usuario.count();
+
+  const[usuarios,total]=await Promise.all([
+    Usuario.find({}, "nombre email role google").skip(desde).limit(5),
+    Usuario.count(),
+  ]);
 
   res.json({
     ok: true,
     usuarios,
-   
+    total,
   });
 };
 
@@ -41,12 +53,12 @@ const crearUsuarios = async (req, res = response) => {
     await usuario.save();
 
     //Generar el TOKEN - JWT
-     const token = await generarToken(usuario.id);
+    const token = await generarToken(usuario.id);
 
     res.json({
       ok: true,
       usuario,
-      token
+      token,
     });
   } catch (error) {
     console.log(error);
