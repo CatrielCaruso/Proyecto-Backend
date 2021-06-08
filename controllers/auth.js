@@ -108,4 +108,26 @@ const googleSinIn = async (req, res = response) => {
   }
 };
 
-module.exports = { login, googleSinIn };
+const renewToken =async(req,res=response)=>{
+
+  
+  const uid = req.uid;
+  
+
+  //Generar el TOKEN - JWT
+
+  const token = await generarToken(uid);
+   
+  res.json({
+
+    ok:true,
+    token
+
+
+
+  });
+
+
+}
+
+module.exports = { login, googleSinIn,renewToken };
