@@ -30,6 +30,8 @@ getTodo = async (req, res = response) => {
   });
 };
 
+
+
 getDocumentosColeccion = async (req, res = response) => {
   const tabla = req.params.tabla;
   const busqueda = req.params.busqueda;
@@ -69,4 +71,5 @@ getDocumentosColeccion = async (req, res = response) => {
 module.exports = {
   getTodo,
   getDocumentosColeccion,
+ 
 };

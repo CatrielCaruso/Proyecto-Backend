@@ -6,7 +6,7 @@ const getMenuFrontEnd=(role="USER_ROLE")=>{
       icono: 'mdi mdi-gauge',
       submenu: [
         {
-          titulo: 'Dashboard',
+          titulo: 'home',
           url: '/',
         },
 
@@ -45,8 +45,36 @@ const getMenuFrontEnd=(role="USER_ROLE")=>{
         //   url: 'hospitales',
         // },
         {
-          titulo: 'Medicos',
-          url: 'medicos',
+          titulo: 'Corredores',
+          url: 'corredores',
+        },
+        
+
+       
+      ],
+    },
+
+    {
+      titulo: 'Reporte',
+      icono: 'mdi mdi-television-guide',
+      submenu: [
+        // {
+        //   titulo: 'Usuarios',
+        //   url: 'usuarios',
+        // },
+
+        // {
+        //   titulo: 'Hospitales',
+        //   url: 'hospitales',
+        // },
+        {
+          titulo: 'Corredores detalles',
+          url: 'CorredoresDetalles',
+        },
+
+        {
+          titulo: 'Carreras detalles',
+          url: 'CarrerasDetalles',
         },
         
 
@@ -62,8 +90,8 @@ const getMenuFrontEnd=(role="USER_ROLE")=>{
            url: 'usuarios',
          },),
     menu[1].submenu.unshift(  {
-          titulo: 'Hospitales',
-          url: 'hospitales',
+          titulo: 'Carreras',
+          url: 'carreras',
         },)
   }
 

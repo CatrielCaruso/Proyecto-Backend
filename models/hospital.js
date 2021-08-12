@@ -9,7 +9,8 @@ const HospitalSchema = Schema({
   img: {
     type: String,
   },
-
+  
+ 
 
   usuario:{
     required:true,
